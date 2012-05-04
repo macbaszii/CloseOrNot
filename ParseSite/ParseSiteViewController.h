@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Parse/Parse.h"
+#import "Places.h"
 
-@interface ParseSiteViewController : UIViewController
+#import "ParsingData.h"
+
+@interface ParseSiteViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchDisplayDelegate, ParsingDataDelegate>
+
+@property (nonatomic, strong) ParsingData *parser;
+@property (nonatomic, strong) NSArray *places;
+@property (nonatomic, strong) NSArray *filteredPlaces;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 
 @end
