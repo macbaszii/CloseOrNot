@@ -19,26 +19,10 @@
 @synthesize tableView = _tableView;
 @synthesize parser;
 
-- (NSManagedObjectContext *)managedObjectContext{
-    ParseSiteAppDelegate *appDelegate = (ParseSiteAppDelegate *)[[UIApplication sharedApplication] delegate];
-    return appDelegate.managedObjectContext;
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
-}
-
-- (void)fetchPlacesData{
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Places" inManagedObjectContext:self.managedObjectContext];
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:kName ascending:NO];
-    [request setEntity:entity];
-    [request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
-    
-    self.places = [self.managedObjectContext executeFetchRequest:request error:nil];
-    [self.tableView reloadData];
 }
 
 - (void)parsingDataWithParser{
@@ -62,6 +46,9 @@
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.%@ contains[c] %@",kName,searchString];
     self.filteredPlaces = [self.places filteredArrayUsingPredicate:predicate];
+    
+    NSPredicate *predicateWithAlter = [NSPredicate predicateWithFormat:@"SELF.%@ contains[c] %@",kAlter,searchString];
+    self.filteredPlaces = [self.places filteredArrayUsingPredicate:predicateWithAlter];
     
     return YES;
 }
@@ -93,7 +80,8 @@
 #pragma mark ParsingDataDelegate 
 
 - (void)paringDataDidFinished:(ParsingData *)controller{
-    [self fetchPlacesData];
+    self.places = [parser fetchPlacesData];
+    [self.tableView reloadData];
 }
 
 #pragma mark - RefreshButton Touched
@@ -108,6 +96,7 @@
 {
     [super viewDidLoad];
     self.title = @"CloseOrNot";
+    self.places = [[NSArray alloc] init];
     UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshButton)];
     self.navigationItem.rightBarButtonItem = refreshButton;
     [self parsingDataWithParser];

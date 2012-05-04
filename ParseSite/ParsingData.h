@@ -24,5 +24,6 @@
 
 - (void)setupParseService;
 - (void)getFromWebService;
+- (NSArray *)fetchPlacesData;
 
 @end

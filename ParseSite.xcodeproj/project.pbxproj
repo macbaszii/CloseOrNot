@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5580653515523BFD00821FB6 /* ParsingData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5580653415523BFC00821FB6 /* ParsingData.m */; };
-		5580653D155275A500821FB6 /* Places.m in Sources */ = {isa = PBXBuildFile; fileRef = 5580653C155275A500821FB6 /* Places.m */; };
+		5580654D1553B91C00821FB6 /* Places.m in Sources */ = {isa = PBXBuildFile; fileRef = 5580654C1553B91C00821FB6 /* Places.m */; };
 		55E8DD4B1551231D00B1B9B4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E8DD4A1551231D00B1B9B4 /* UIKit.framework */; };
 		55E8DD4D1551231D00B1B9B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E8DD4C1551231D00B1B9B4 /* Foundation.framework */; };
 		55E8DD4F1551231D00B1B9B4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E8DD4E1551231D00B1B9B4 /* CoreGraphics.framework */; };
@@ -32,8 +32,8 @@
 /* Begin PBXFileReference section */
 		5580653315523BFC00821FB6 /* ParsingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParsingData.h; sourceTree = "<group>"; };
 		5580653415523BFC00821FB6 /* ParsingData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParsingData.m; sourceTree = "<group>"; };
-		5580653B155275A500821FB6 /* Places.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Places.h; sourceTree = "<group>"; };
-		5580653C155275A500821FB6 /* Places.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Places.m; sourceTree = "<group>"; };
+		5580654B1553B91C00821FB6 /* Places.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Places.h; sourceTree = "<group>"; };
+		5580654C1553B91C00821FB6 /* Places.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Places.m; sourceTree = "<group>"; };
 		55E8DD461551231D00B1B9B4 /* ParseSite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParseSite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E8DD4A1551231D00B1B9B4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		55E8DD4C1551231D00B1B9B4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -149,8 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				55E8DD7C1551510F00B1B9B4 /* Places.xcdatamodeld */,
-				5580653B155275A500821FB6 /* Places.h */,
-				5580653C155275A500821FB6 /* Places.m */,
+				5580654B1553B91C00821FB6 /* Places.h */,
+				5580654C1553B91C00821FB6 /* Places.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -222,7 +222,7 @@
 				55E8DD5E1551231D00B1B9B4 /* ParseSiteViewController.m in Sources */,
 				55E8DD7E1551510F00B1B9B4 /* Places.xcdatamodeld in Sources */,
 				5580653515523BFD00821FB6 /* ParsingData.m in Sources */,
-				5580653D155275A500821FB6 /* Places.m in Sources */,
+				5580654D1553B91C00821FB6 /* Places.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

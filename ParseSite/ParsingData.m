@@ -27,13 +27,14 @@
     [Parse setApplicationId:@"NluQYucXgItZdnUbxkUUztDk6jTUCVeDdIljjqMh" clientKey:@"tqyOKsFN4ajGKgfPFHsMKFzhMhCpSFZLyURHXqlT"];
 }
 
-- (void)insertDataWithName:(NSString *)_name openTime:(NSString *)_open closeTime:(NSString *)_close andObjectId:(NSString *)_id{
+- (void)insertDataWithName:(NSString *)_name alterName:(NSString *)_alter openTime:(NSString *)_open closeTime:(NSString *)_close andObjectId:(NSString *)_id{
     Places *placesEntity = [NSEntityDescription insertNewObjectForEntityForName:@"Places" inManagedObjectContext:self.managedObjectContext];
     
     placesEntity.objectId = _id;
     placesEntity.name = _name;
     placesEntity.openTime = _open;
     placesEntity.closeTime = _close;
+    placesEntity.alterNames = _alter;
     [self.managedObjectContext save:nil];
 }
 
@@ -52,13 +53,14 @@
                 NSArray *filtered = [allInCoreData filteredArrayUsingPredicate:predicate];
                 
                 if (!filtered.count) {
-                    [self insertDataWithName:[item objectForKey:kName] openTime:[item objectForKey:kOpen] closeTime:[item objectForKey:kClose] andObjectId:item.objectId];
+                    [self insertDataWithName:[item objectForKey:kName] alterName:[item objectForKey:kAlter] openTime:[item objectForKey:kOpen] closeTime:[item objectForKey:kClose] andObjectId:item.objectId];
                 }else{
                     Places *toUpdate = [filtered objectAtIndex:0];
                     toUpdate.objectId = item.objectId;
                     toUpdate.name = [item objectForKey:kName];
                     toUpdate.openTime = [item objectForKey:kOpen];
                     toUpdate.closeTime = [item objectForKey:kClose];
+                    toUpdate.alterNames = [item objectForKey:kAlter];
                     
                     [self.managedObjectContext save:nil];
                 }
@@ -85,6 +87,18 @@
         }
     }];
 }
+
+- (NSArray *)fetchPlacesData{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Places" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:kName ascending:NO];
+    [request setEntity:entity];
+    [request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
+    
+    NSArray *placesTMP = [self.managedObjectContext executeFetchRequest:request error:nil];
+    return placesTMP;
+}
+
 
 
 @end
