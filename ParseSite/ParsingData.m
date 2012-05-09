@@ -54,7 +54,7 @@
                 NSArray *filtered = [allInCoreData filteredArrayUsingPredicate:predicate];
                 
                 if (!filtered.count) {
-                    [self insertDataWithName:[item objectForKey:kName] alterName:[item objectForKey:kAlter] openTime:[item objectForKey:kOpen] closeTime:[item objectForKey:kClose] notes:[item objectForKey:@"Notes"] andObjectId:item.objectId];
+                    [self insertDataWithName:[item objectForKey:kName] alterName:[item objectForKey:kAlter] openTime:[item objectForKey:kOpen] closeTime:[item objectForKey:kClose] notes:[[item objectForKey:@"Notes"] stringByReplacingOccurrencesOfString:@"\n" withString:@"\\n"] andObjectId:item.objectId];
                 }else{
                     Places *toUpdate = [filtered objectAtIndex:0];
                     toUpdate.objectId = item.objectId;
@@ -62,7 +62,7 @@
                     toUpdate.openTime = [item objectForKey:kOpen];
                     toUpdate.closeTime = [item objectForKey:kClose];
                     toUpdate.alterNames = [item objectForKey:kAlter];
-                    toUpdate.notes = [item objectForKey:@"Notes"];
+                    toUpdate.notes = [[item objectForKey:@"Notes"] stringByReplacingOccurrencesOfString:@"\n" withString:@"\\n"];
                     
                     [self.managedObjectContext save:nil];
                 }

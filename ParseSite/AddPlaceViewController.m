@@ -1,16 +1,19 @@
 //
-//  DetailViewController.m
+//  AddPlaceViewController.m
 //  ParseSite
 //
-//  Created by Kiattisak Anoochitarom on 5/8/55 BE.
+//  Created by Kiattisak Anoochitarom on 5/9/55 BE.
 //  Copyright (c) 2555 __MyCompanyName__. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import "AddPlaceViewController.h"
 
-@implementation DetailViewController
-@synthesize nameLabel, timeLabel, noteTextView;
-@synthesize placeDetail;
+@implementation AddPlaceViewController
+@synthesize nameField, branchField, openField, closeField, descField;
+
+- (IBAction)done:(id)sender{
+    [self dismissModalViewControllerAnimated:YES];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,19 +32,11 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)updateUI{
-    self.nameLabel.text = self.placeDetail.name;
-    self.timeLabel.text = [NSString stringWithFormat:@"%@ - %@",self.placeDetail.openTime,self.placeDetail.closeTime];
-    
-    self.noteTextView.text = [self.placeDetail.notes stringByReplacingOccurrencesOfString:@"\\n" withString:@"\n"];
-}
-
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self updateUI];
     // Do any additional setup after loading the view from its nib.
 }
 

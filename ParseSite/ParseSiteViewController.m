@@ -9,6 +9,7 @@
 #import "ParseSiteViewController.h"
 #import "ParseSiteAppDelegate.h"
 #import "DetailViewController.h"
+#import "AddPlaceViewController.h"
 
 #define kName @"name"
 #define kOpen @"openTime"
@@ -92,10 +93,25 @@
     [self.tableView reloadData];
 }
 
-#pragma mark - RefreshButton Touched
+#pragma mark - NavigationButton Touched
 
 - (IBAction)refreshButton{
     [self.parser getFromWebService];
+}
+
+- (IBAction)addButton{
+    AddPlaceViewController *addController = [[AddPlaceViewController alloc] initWithNibName:@"AddPlaceViewController" bundle:nil];
+    self.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentModalViewController:addController animated:YES];
+}
+
+- (void)updateUI{
+    self.title = @"CloseOrNot";
+    self.places = [[NSArray alloc] init];
+    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshButton)];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButton)];
+    self.navigationItem.rightBarButtonItem = refreshButton;
+    self.navigationItem.leftBarButtonItem = addButton;
 }
 
 #pragma mark - View lifecycle
@@ -103,10 +119,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"CloseOrNot";
-    self.places = [[NSArray alloc] init];
-    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshButton)];
-    self.navigationItem.rightBarButtonItem = refreshButton;
+    [self updateUI];
     [self parsingDataWithParser];
   	// Do any additional setup after loading the view, typically from a nib.
 }
