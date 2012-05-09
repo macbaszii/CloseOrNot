@@ -2,7 +2,7 @@
 //  Places.m
 //  ParseSite
 //
-//  Created by Kiattisak Anoochitarom on 5/4/55 BE.
+//  Created by Kiattisak Anoochitarom on 5/8/55 BE.
 //  Copyright (c) 2555 __MyCompanyName__. All rights reserved.
 //
 
@@ -11,10 +11,11 @@
 
 @implementation Places
 
+@dynamic alterNames;
 @dynamic closeTime;
 @dynamic name;
 @dynamic objectId;
 @dynamic openTime;
-@dynamic alterNames;
+@dynamic notes;
 
 @end

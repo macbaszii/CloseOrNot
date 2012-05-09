@@ -4,10 +4,11 @@
         <attribute name="alterNames" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="closeTime" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="openTime" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Places" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Places" positionX="160" positionY="192" width="128" height="135"/>
     </elements>
 </model>

@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		554598641558D34900FA2660 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 554598621558D34900FA2660 /* DetailViewController.m */; };
+		554598651558D34900FA2660 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 554598631558D34900FA2660 /* DetailViewController.xib */; };
+		554598691558D60F00FA2660 /* Places.m in Sources */ = {isa = PBXBuildFile; fileRef = 554598681558D60F00FA2660 /* Places.m */; };
 		5580653515523BFD00821FB6 /* ParsingData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5580653415523BFC00821FB6 /* ParsingData.m */; };
-		5580654D1553B91C00821FB6 /* Places.m in Sources */ = {isa = PBXBuildFile; fileRef = 5580654C1553B91C00821FB6 /* Places.m */; };
 		55E8DD4B1551231D00B1B9B4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E8DD4A1551231D00B1B9B4 /* UIKit.framework */; };
 		55E8DD4D1551231D00B1B9B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E8DD4C1551231D00B1B9B4 /* Foundation.framework */; };
 		55E8DD4F1551231D00B1B9B4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E8DD4E1551231D00B1B9B4 /* CoreGraphics.framework */; };
@@ -30,10 +32,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		554598611558D34900FA2660 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		554598621558D34900FA2660 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		554598631558D34900FA2660 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		554598671558D60F00FA2660 /* Places.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Places.h; sourceTree = "<group>"; };
+		554598681558D60F00FA2660 /* Places.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Places.m; sourceTree = "<group>"; };
 		5580653315523BFC00821FB6 /* ParsingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParsingData.h; sourceTree = "<group>"; };
 		5580653415523BFC00821FB6 /* ParsingData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParsingData.m; sourceTree = "<group>"; };
-		5580654B1553B91C00821FB6 /* Places.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Places.h; sourceTree = "<group>"; };
-		5580654C1553B91C00821FB6 /* Places.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Places.m; sourceTree = "<group>"; };
 		55E8DD461551231D00B1B9B4 /* ParseSite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParseSite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E8DD4A1551231D00B1B9B4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		55E8DD4C1551231D00B1B9B4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -126,8 +131,11 @@
 				55E8DD5A1551231D00B1B9B4 /* ParseSiteAppDelegate.m */,
 				55E8DD5C1551231D00B1B9B4 /* ParseSiteViewController.h */,
 				55E8DD5D1551231D00B1B9B4 /* ParseSiteViewController.m */,
+				554598611558D34900FA2660 /* DetailViewController.h */,
+				554598621558D34900FA2660 /* DetailViewController.m */,
 				5580653315523BFC00821FB6 /* ParsingData.h */,
 				5580653415523BFC00821FB6 /* ParsingData.m */,
+				554598631558D34900FA2660 /* DetailViewController.xib */,
 				55E8DD5F1551231D00B1B9B4 /* ParseSiteViewController.xib */,
 				55E8DD511551231D00B1B9B4 /* Supporting Files */,
 			);
@@ -149,8 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				55E8DD7C1551510F00B1B9B4 /* Places.xcdatamodeld */,
-				5580654B1553B91C00821FB6 /* Places.h */,
-				5580654C1553B91C00821FB6 /* Places.m */,
+				554598671558D60F00FA2660 /* Places.h */,
+				554598681558D60F00FA2660 /* Places.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -207,6 +215,7 @@
 			files = (
 				55E8DD551551231D00B1B9B4 /* InfoPlist.strings in Resources */,
 				55E8DD611551231D00B1B9B4 /* ParseSiteViewController.xib in Resources */,
+				554598651558D34900FA2660 /* DetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,7 +231,8 @@
 				55E8DD5E1551231D00B1B9B4 /* ParseSiteViewController.m in Sources */,
 				55E8DD7E1551510F00B1B9B4 /* Places.xcdatamodeld in Sources */,
 				5580653515523BFD00821FB6 /* ParsingData.m in Sources */,
-				5580654D1553B91C00821FB6 /* Places.m in Sources */,
+				554598641558D34900FA2660 /* DetailViewController.m in Sources */,
+				554598691558D60F00FA2660 /* Places.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

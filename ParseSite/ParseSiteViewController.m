@@ -8,6 +8,7 @@
 
 #import "ParseSiteViewController.h"
 #import "ParseSiteAppDelegate.h"
+#import "DetailViewController.h"
 
 #define kName @"name"
 #define kOpen @"openTime"
@@ -75,6 +76,13 @@
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - %@",currentPlaces.openTime,currentPlaces.closeTime];
        
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    DetailViewController *destinationViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+    Places *selectedData = [self.places objectAtIndex:indexPath.row];
+    destinationViewController.placeDetail = selectedData;
+    [self.navigationController pushViewController:destinationViewController animated:YES];
 }
 
 #pragma mark ParsingDataDelegate 

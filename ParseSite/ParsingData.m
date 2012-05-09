@@ -27,7 +27,7 @@
     [Parse setApplicationId:@"NluQYucXgItZdnUbxkUUztDk6jTUCVeDdIljjqMh" clientKey:@"tqyOKsFN4ajGKgfPFHsMKFzhMhCpSFZLyURHXqlT"];
 }
 
-- (void)insertDataWithName:(NSString *)_name alterName:(NSString *)_alter openTime:(NSString *)_open closeTime:(NSString *)_close andObjectId:(NSString *)_id{
+- (void)insertDataWithName:(NSString *)_name alterName:(NSString *)_alter openTime:(NSString *)_open closeTime:(NSString *)_close notes:(NSString *)_notes andObjectId:(NSString *)_id{
     Places *placesEntity = [NSEntityDescription insertNewObjectForEntityForName:@"Places" inManagedObjectContext:self.managedObjectContext];
     
     placesEntity.objectId = _id;
@@ -35,6 +35,7 @@
     placesEntity.openTime = _open;
     placesEntity.closeTime = _close;
     placesEntity.alterNames = _alter;
+    placesEntity.notes = _notes;
     [self.managedObjectContext save:nil];
 }
 
@@ -53,7 +54,7 @@
                 NSArray *filtered = [allInCoreData filteredArrayUsingPredicate:predicate];
                 
                 if (!filtered.count) {
-                    [self insertDataWithName:[item objectForKey:kName] alterName:[item objectForKey:kAlter] openTime:[item objectForKey:kOpen] closeTime:[item objectForKey:kClose] andObjectId:item.objectId];
+                    [self insertDataWithName:[item objectForKey:kName] alterName:[item objectForKey:kAlter] openTime:[item objectForKey:kOpen] closeTime:[item objectForKey:kClose] notes:[item objectForKey:@"Notes"] andObjectId:item.objectId];
                 }else{
                     Places *toUpdate = [filtered objectAtIndex:0];
                     toUpdate.objectId = item.objectId;
@@ -61,6 +62,7 @@
                     toUpdate.openTime = [item objectForKey:kOpen];
                     toUpdate.closeTime = [item objectForKey:kClose];
                     toUpdate.alterNames = [item objectForKey:kAlter];
+                    toUpdate.notes = [item objectForKey:@"Notes"];
                     
                     [self.managedObjectContext save:nil];
                 }
